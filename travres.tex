@@ -1,0 +1,447 @@
+%
+% travresEbola.tex
+%
+% Created: 11 Nov 2014 (based on travres2007-02-28)
+% Changed: 
+
+\documentclass[12pt]{article}
+
+%% PAGE SETUP
+\topmargin 0.0cm
+%\topmargin 0.5cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+%\textheight 23cm
+\footskip 1.0cm
+%%\raggedright  %% also sets parindent to 0...
+
+%% PACKAGES
+\usepackage{color}
+\usepackage{amssymb} % for \gtrsim
+\usepackage{amsmath} % for \text
+\usepackage{xspace}
+\usepackage{graphics,graphicx}
+%%\usepackage{doublespace} % for \queryindent, see LaTeX companion p.52
+\usepackage{showtags}
+\usepackage{hyperref}
+\hypersetup{pagebackref,
+  bookmarks=true,
+%%%  colorlinks=true,  %%% This yields a bug in figure environment
+  citecolor=blue,
+  urlcolor=blue}
+%%%\usepackage{nature}
+\usepackage{cite}
+%%%\renewcommand{\cite}{\citep}
+%%%\usepackage{natbib}
+%%%\usepackage{citesupernumber}
+%%%\usepackage{authordate1-4}
+\usepackage{grffile} % allow extra . in graphics filenames
+\usepackage{lineno}
+
+%% COUNTERS
+\newcounter{appendix}
+
+%% GENERAL MACROS
+%%%\newcommand{\etal}{\emph{et~al.\/}\xspace}
+\newcommand{\etal}{\emph{et~al.\/}\ }
+\newcommand{\etc}{\emph{etc.}\xspace }
+\newcommand{\eg}{\emph{e.g.,\/}\xspace}
+\newcommand{\ie}{\emph{i.e.,\/}\xspace}
+\newcommand{\R}{{\mathcal R}}
+\newcommand{\REFS}{{\color{red}[REFS]}\xspace}
+\newcommand{\blank}{{\color{red}\underline{\hskip1truecm}}\xspace}
+\newcommand{\thickredline}{{\color{red}\bigskip\begin{center}\linethickness{2mm}\line(1,0){250}\end{center}\bigskip}}
+\newcommand{\supp}{online supplementary material\xspace}
+
+%% REFERENCE MACROS
+\newcommand{\eref}[1]{Equation~\eqref{E:#1}}
+\newcommand{\fref}[1]{Figure~\ref{F:#1}}
+\newcommand{\tref}[1]{Table~\ref{T:#1}}
+\newcommand{\sref}[1]{\S\ref{S:#1}}
+
+%% COMMENT MACROS
+\newcommand{\de}[1]{$\langle${\footnotesize{\color{cyan}\slshape{\bfseries DE:} #1}$\rangle$}}
+\newcommand{\jm}[1]{$\langle${{\color{green}\slshape{\bfseries JM:} #1}$\rangle$}}
+% to remove all queries:
+%%%\renewcommand{\de}[1]{\relax}
+%%%\renewcommand{\jm}[1]{\relax}
+
+%% TRAVRES-SPECIFIC MACROS
+\newcommand{\cbar}{\overline{c}}
+\newcommand{\cbarcrit}{\overline{c}_{{}_{\rm crit}}}
+%%\newcommand{\cimp}{\overline{c}_{{}_{\rm im}}}
+\newcommand{\cimp}{{c}_{{}_{\rm im}}}
+\newcommand{\Tbar}{\overline{T}_{\rm hos}}
+\newcommand{\Tinc}{\overline{T}_{\rm inc}}
+\newcommand{\Tlat}{\overline{T}_{\rm lat}}
+\newcommand{\Tinf}{\overline{T}_{\rm inf}}
+\newcommand{\Pimp}{P_{\rm im}}
+\newcommand{\Nimp}{N_{\rm im}}
+\newcommand{\Ptrav}{P_{\rm trav}}
+\newcommand{\Pinc}{P_{\rm inc}}
+\newcommand{\Ntrav}{N_{\rm trav}}
+\newcommand{\Ntot}{N_{\rm tot}}
+\newcommand{\ctol}{c_{\rm tol}}
+\newcommand{\Ctol}{C_{\rm tol}}
+\newcommand{\Icum}{I_{\rm cum}}
+\newcommand{\Btarget}{B_{\rm target}}
+\renewcommand{\b}{b}
+\newcommand{\btarget}{\b_{\rm target}}
+\newcommand{\BGTA}{B_{\rm GTA}}
+\newcommand{\bGTA}{\b_{{}_{\rm GTA}}}
+\newcommand{\occ}{\Omega}
+\newcommand{\occtarget}{\occ_{\rm target}}
+\newcommand{\occGTA}{\occ_{\rm GTA}}
+
+\pagestyle{myheadings}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+%\makeatletter \renewcommand\@biblabel[1]{#1 } \makeatother
+
+%\bibliographystyle{nature}
+%\bibliographystyle{Science}
+\bibliographystyle{unsrt}
+%\bibliographystyle{abbrv} % numeric labels
+%\bibliographystyle{alpha} % alphanumeric labels
+%\bibliographystyle{tree}
+%\bibliographystyle{plos}
+%\bibliographystyle{authordate2}
+%\bibliographystyle{natbib}
+%\bibliographystyle{agsm}
+
+\markright{{\it D.J.D.\ Earn \etal} \hfill Ebola virus and international travel\quad}
+
+%% AUTHORS
+\begin{center}
+{\huge{\bf Ebola virus and travel restriction}}
+\vskip0.5truecm
+{\bfseries
+David J.D.\ Earn$^{1,2,*}$\\
+Junling Ma$^3$\\
+Mark B.\ Loeb$^{2,4}$\\
+David N.\ Fisman$^{5}$
+}
+\vskip0.5truecm
+%% ADDRESSES
+{\normalsize
+$^1$Department of Mathematics \& Statistics, McMaster University, Hamilton, ON, Canada L8S 4K1\\
+$^2${M. G. DeGroote Institute for Infectious Disease Research, McMaster University}\\
+$^3$Department of Mathematics \& Statistics, University of Victoria, Victoria, BC\\
+$^4$Department of Clinical Epidemiology \& Biostatistics, McMaster University, 
+Hamilton, ON, Canada L8N 3Z5\\
+%%%%$^4$Department of Pathology \& Molecular Medicine, McMaster University, Hamilton, ON, Canada L8N 3Z5\\
+$^5$Dalla Lana School of Public Health, University of Toronto, 155 College Street, 6th floor, Toronto, ON M5T 3M7\\
+\smallskip
+$^*${\bf Corresponding author:}\\
+E-mail: {\tt earn@math.mcmaster.ca}\\
+}
+\vskip0.5truecm
+{\bf\today}
+\vskip0.5truecm
+{\bf Target journal: } \emph{\blank}\\
+\medskip
+\textsl{Lancet? Lancet ID? Ann. Int. Med.? BMJ?\\
+EID?  PLoS Currents Outbreaks?  PLoS ONE?}
+\end{center}
+\vfill
+
+\leftline{{\bfseries Number of pages:} \blank, including this cover page and \blank figures}
+%% to be provided online as Supporting Information
+
+% \paragraph*{Word counts}
+% 143 words in abstract, 5027 in text
+% \shortquery{Limit is 4000 words, or six pages}
+
+% \paragraph*{Abbreviations}
+% USaC: United States and Canada
+
+% \paragraph*{Numbers of figures and tables:}
+% 3 figures, 
+% 2 tables.
+
+\renewcommand{\baselinestretch}{1.23}\normalsize
+
+\newpage
+
+\vbox{
+%%\null\vskip1truecm
+%\section*{SUMMARY}
+\section*{ABSTRACT}
+\begin{noindent}
+\de{If this is just a letter, we don't need an abstract.  We'll see how this evolves.}
+\end{noindent}
+}
+
+\bigskip\bigskip
+\paragraph*{Keywords}
+Ebola virus disease, emerging infectious diseases, surge capacity, international travel, public health policy
+
+\newpage
+
+\linenumbers
+
+\section{Introduction}
+
+\emph{\textcolor{red}{Need rewriting}}
+
+The recent epidemic of Ebola virus disease (EVD) in West Africa has rekindled public debate concerning travel restriction policies in response to outbreaks of emerging and re-emerging infectious diseases \REFS.  The level of concern is high because the current epidemic is larger than any previous EVD outbreak \REFS, the estimated case fatality proportion (CFP) is approximately 70\% \REFS and no vaccine is yet available \REFS.
+
+A number of countries (Canada, Australia and Israel at the time of writing) 
+have imposed visa restrictions that limit travel from areas with sustained transmission of Ebola virus \REFS.  In contrast, no such restrictions were imposed at the time of the 2003 SARS epidemic, during which SARS cases imported into Canada from Southeast Asia seeded an outbreak that ultimately led to 249 cases and 43 deaths in Toronto \REFS.
+\de{In the captrav paper we cited a WHO summary table with a URL that is no longer active.  There must be an official pub or a current WHO URL that now gives these numbers.}
+
+In an effort to improve understanding of some of the specific travel-related risks posed by the current EVD epidemic, we used a mathematical model (detailed in \supp) to investigate some anticipated strains on health care systems in countries that experience imported cases of a novel infectious disease.  We considered the current situation in West Africa and compared the expected EVD outcomes with those expected if the disease in question were SARS.  Our goal was to identify characteristics of EVD natural history and aspects of travel patterns that may not be obvious but significantly affect the potential impacts of travel-related imported cases of EVD.
+
+The general situation of interest is that individuals in a \emph{source region} (where sustained community transmission of the infectious agent is occurring) may travel to an \emph{arrival region}, potentially stimulating or contributing to transmission in the arrival region.  The current source region is West Africa.  We focus on Canada as the arrival region (since incoming international travel data for Canada are easily obtained \cite{cansim}), but our qualitative conclusions do not depend on the particular arrival region.  \de{The fact that Canada experienced a travel-induced epidemic of SARS in 2003 is also good motivation, but I failed to come up with a brief elegant way of mentioning that again in this paragraph!}
+
+\section{The Model}
+
+In this section, we formulate our model to predict the impact of travel restrictions on health care systems.
+
+\subsection{Anticipated case import rate}
+
+We assume that the epidemic can be described by an SEIR model with immigration from the source region which has an on going epidemic, to a arrival region which implements travel restriction, with a rate $\lambda$. Travel restrictions will decrease this rate. Assume that infected individuals do not travel, but latent individuals do. Let $e_S(t)$ be the \emph{fractions} of latent and infectious individuals in the source region, respectively, and also the fractions among the immigrated individuals. For simplicity, assume that
+\begin{equation}
+\label{eq:eS}
+e_S=\frac{E_S}/{N_S}\,,
+\end{equation}
+where $E_S$ is the number of latent individuals in the source region, and $N_S$ is the population size of the source region.
+
+\subsection{Burden on health care systems}
+	
+As a simple measure of the strain on the health care system in the arrival region, we consider the number of hospital beds occupied by infected individuals.  We assume that any infected individual showing symptoms will be admitted to hospital if a bed is available, that admission to hospital takes place on average $1/h$ days after an individual shows symptoms (the current estimate in West Africa is $h\approx 1$ \REFS), and that individuals stay in hospital until they recover or die.  
+	
+Let $S$, $E$, and $I$, and $H$ be the \emph{numbers} of susceptible, latent, infectious individuals and hospitalized in the arrival region, respectively. For the short time scale that are relevant to public health decisions about an emerging epidemic, we ignore population dynamics in the arrival region. Moreover, since ordinary differential equation (ODE) models implicitly assume exponential waiting time in each class, which is unrealistic for the latent period, we approximate the latent stage distribution by a gamma distribution with an integer shape parameter $n$. Let $p$ be the fraction of latent individuals develop symptom en route. For those who remained latent after arrival, they are equally likely to be in any of the latent stage. The model can thus be written as, 
+\begin{subequations}
+	\label{eq:model}
+	\begin{align}
+	S' &= -\beta SI \,, \label{eq:S}\\
+	E_1' &= \beta SI - n\sigma E_1 - \frac {1-p}{n}\lambda e_s \,, \label{eq:E1} \\
+	E_k' &= n\sigma E_{k-1} - n\sigma E_k - \frac {1-p}{n}\lambda E_s \,, \; k=2,3,\dots,n\label{eq:E1}\\
+	I' &= n\sigma E_n -\gamma I - \delta_I I - hI + \frac {p}{n}\lambda E_s \,,\label{eq:I}\\
+	H' &=  hI -\delta_H H - \rho H \,,\label{eq:H}
+	\end{align}
+\end{subequations}
+where $\beta$ is the transmission rate, $1/\sigma$ is the mean latent period, $\gamma$ is the sum of the recovery and death rates of infectious individuals, $\delta_I$ and $\delta_H$ are the disease induced death rates of the non-hospitalized and hospitalized individuals, respectively, and $\\rho$ is the discharge rate. Note that, due to the large population size of the arrival region compared to the immigrants, the importation fo susceptible individuals is ignored.
+
+In the absence of importation (i.e., $e_S=0$ or $\lambda=0$), the presence of a local epidemic in the arrival region is determined by the basic reproduction number $\R_0$. Using the next generation matrix method \cite{vandWalt2002},  $\R_0$ can be computed as
+\begin{equation}
+\label{eq:R0}
+\R_0 = 
+\end{equation}
+
+\section{Data}
+
+\subsection{Annual international travel}
+
+We use the data of annual international air travel from western African countries into Canada as a representation of the immigration rate. Air travel from western African countries into Canada and the United States has increased more than 100-fold since 1950 (\fref{travel}a).  The volume of travel from Africa into Canada remains a small fraction of the total (\fref{travel}b). At the time of the 2003 SARS epidemic, travel into Canada from China and Africa was similar, but is now more than three times greater from China (\fref{travel}c).  Travel patterns are seasonal, with peak travel into Canada and the United States in the summer (\fref{travel}d,e).
+
+The present source region for Ebola virus includes three countries in West Africa (Liberia, Sierra Leone and Guinea) \REFS.  The monthly numbers of travellers from these countries into Canada are shown in \fref{westafricatravel} and are very small (\tref{wam}).
+
+\begin{table}[h]
+\input R/wamtab.tex
+\caption{Monthly travellers from current Ebola virus source regions to Canada.}
+\label{T:wam}
+\end{table}
+
+Given the population sizes of these countries (\blank) and the numbers of cases that have been reported to date (\blank), the expected rate of imported cases into Canada is extremely small (\blank).
+\de{Calculate these expected import rates; contrast with SARS imports from China (in 2003 and what we would expect now).}
+
+In our analysis below we assume a weekly case import rate of one per week.  To reach this expected import rate, the epidemic sizes would need to increase to \blank cases.
+
+\subsection{Disease parameters}
+
+We summarize the disease parameters that we use in our model for Ebola in western African countries, and for the 2002 SARS epidemic in Canada, in Table \ref{tab:par}.
+
+\begin{table}
+\begin{tabular}{crr}
+	parameter & Ebola & SARS \\
+	transmission rate $\beta$ & & \\
+	mean latent period $\sigma$ & & \\
+	shape parameter for latent period $n$ & & \\
+	mean infectious period $\gamma$ & & \\
+	non-hospitalized disease induced death rate $\delta_I$ & & \\
+	hospitalized disease induced death rate $\delta_H$ & & \\
+	discharge rate $\rho$ & & \\
+	hospitalization rate $\rho$ & & 
+\end{tabular}
+\label{tab:par}
+The table of disease parameters
+\end{table}
+
+\section{Results}
+
+\emph{\textcolor{red}{Need rewriting}}
+
+\subsection{The effect of local transmission}
+
+\emph{\textcolor{red}{Need rewriting}}
+
+\subsection{The effect of mean latent period}
+
+\emph{\textcolor{red}{Need rewriting}}
+
+\fref{beds} shows the number of beds expected to be occupied in the arrival region over a three month period after an initial imported case, with different curves corresponding to different scenarios.  The left panels are based on the infectious agent being Ebola virus whereas the right panels compare the situation for SARS coronavirus.  The basic reproduction number (the average number of secondary infections caused by a primary case in a wholly susceptible population) is $\R_0\approx1.8$ for both Ebola and SARS \REFS\cite{WallTeun04}.  The differences between Ebola and SARS that the graphs take into account are the mean latent period (\blank for EVD \REFS and \blank for SARS \cite{Donn+03}) and the mean length of hospital stay (6.4 days for EVD \REFS and 25 days for SARS \cite{Donn+03}).  The much shorter hospital stays for Ebola result from the high probability of rapid death (the mean time from hospital admission to death is 4.2 days \REFS).  Hospital stay lengths and death rates for EVD are based on current estimates in West Africa \REFS.  If individuals were to stay longer in hospital on average in the arrival region (\eg because of reduced CFP resulting from greater health care resources) then the number of beds occupied would be larger.
+
+
+The different scenarios considered in \fref{beds} take account of:
+\begin{itemize}
+\item  whether local control efforts have successfully reduced the reproduction number $\R$ below unity (\emph{black:} no control, so $\R=\R_0=1.8$, \emph{red:} control that reduces transmission by 80\%, so $\R=0.36$);
+\item how successful travel restrictions are in preventing case imports (\emph{solid:} no effect, \emph{dotted:} 90\% of imports prevented, \emph{dashed:} 99\% of imports prevented);
+\item when travel restrictions are imposed (\emph{top panels:} immediately after the first import, \emph{middle panels:} one week after the first import, \emph{bottom panels:} two weeks after the first import).
+\end{itemize}
+The key inferences we glean from \fref{beds} are:
+\begin{itemize}
+\item In the absense of control that reduces the transmission rate (\emph{black} curves), travel restrictions delay the initial growth of the epidemic, but have significant effects only if they are imposed immediately.
+\item In the presence of control (\emph{red} curves), effective travel restriction substantially reduces the required hospital capacity.  For a given rate of case imports, the effects of travel restrictions are much stronger for SARS than Ebola because fewer cases of Ebola are expected and hospital stays are much shorter for Ebola than for SARS.
+\item The benefits of early implementation of travel restrictions are substantial.
+\end{itemize}
+
+\fref{deaths} shows the cumulative number of deaths expected in each of the scenarios considered in \fref{beds}.  While \fref{beds} indicates that much greater hospital capacity is required to contain transmission from SARS imports, \fref{deaths} shows that far more deaths would be expected from Ebola than SARS if the transmission rate were reduced by 80\% for both.
+\de{We should probably emphasize that the graphs show \emph{expectations} and that any real situation would be noisy.}
+
+\section{Conclusion}
+\emph{\textcolor{red}{Need rewriting}}
+
+We emphasize that our inferences from our analysis are qualitative.  We used a precisely defined mathematical model to generate the figures we have discussed and we verified that the predictions of our model approximate the mean of millions of realizations of a more realistic stochastic individual-based model.  However, our graphs should not be interpretted as precise predictions of what to expect if there were an EVD import into Canada.  Rather, the long latent period, modest infectious period and short expected hospital stays for EVD imply that the hospital capacity required to contain transmission from imported EVD cases is relatively small.  This contrasts SARS, for which the potential to exceed hospital capacity and thereby lose the ability to contain transmission effectively is more likely to be a serious concern.  Of course, the extraordinarily high EVD case fatality proportion is bound to motivate consideration of travel restrictions from Ebola source regions even though the expected number imports and secondary cases it extremely small.
+
+\newpage
+\paragraph*{Acknowledgements}
+
+We are grateful to Susan Marsh-Rollo for assistance in collecting travel statistics.  DJDE and JM were supported by the Natural Sciences and Engineering Research Council of Canada (NSERC).
+\de{Other acknowledgements?}
+Funding organizations played no role in this study.
+
+%%\paragraph*{Biographical sketch of first author}
+% Dr.\ Earn is an Associate Professor in the Department of Mathematics
+% and Statistics at McMaster University.  He is an applied mathematician
+% whose research is focussed mainly on the development and analysis of
+% epidemiological and ecological models with policy implications.
+
+\paragraph*{Author contributions:}
+DJDE and JM conceived the study.  All authors contributed to the design of the study.  DJDE and JM carried out the mathematical analysis.  DJDE and DNF wrote the first draft of the manuscript.  All authors contributed to revising the manuscript.
+
+\paragraph*{Competing Interests:} 
+The authors declare that no competing interests exist.
+
+\paragraph*{Abbreviations:}
+%%GTA, Greater Toronto Area;
+EVD, Ebola virus disease;
+SARS, severe acute respiratory syndrome
+%%USaC, United States and Canada
+
+%%\bibliographystyle{} is above...
+\bigskip\hrule\bigskip
+\renewcommand{\baselinestretch}{1}\normalsize
+\bibliography{DavidEarn}
+%% ./sarscapnotes,./SARSmore
+\renewcommand{\baselinestretch}{1.23}\normalsize
+
+\newpage
+
+\begin{figure}[th]
+\begin{center}
+\scalebox{1}{
+%\rotatebox{270}{
+\includegraphics{R/travel.pdf}
+%}
+}
+\bigskip
+{\bf Figure \ref{F:travel}.}   See next page for caption.
+\end{center}
+\end{figure}
+
+%
+% Hack to get the caption to appear on the next page for sure.
+%
+\begin{figure}[th]
+\caption{Patterns of travel into Canada and the United States.
+%
+(a) Annual overseas travel since 1946 (log scale).  \emph{Black:} Sum of overseas travellers into and out of
+  the United States each year.  \emph{Blue:} Individuals not normally resident in Canada who travelled overseas
+  to Canada each year.  \emph{Red:} Canadian residents who returned to Canada after travelling overseas.
+%
+(b) Annual international travel into Canada from 1972 to 2005, by
+  country of residence of traveller.  For epidemics of the same size,
+  the relative number of travellers from these regions gives a rough
+  measure of the relative risk of importation of disease.  Total for
+  countries other than the United States (\emph{blue}), Europe (\emph{red}), Asia (\emph{green}), Africa (\emph{yellow}).
+%
+(c) As in (b), but the vertical scale is smaller by a factor of 20.
+  Oceania and other Ocean Islands (\emph{cyan}), South America (\emph{red}),
+ Africa (\emph{yellow}); China (\emph{green}), Taiwan (\emph{black}).  Data for China and Taiwan are
+  available only since 1990.
+%
+(d) Monthly travel, since January 1996, into the United States (\emph{black})
+  and Canada (\emph{blue}) by individuals resident outside North America.
+  September of each year is circled in red.  The impact of September
+  11th, 2001, on travel into the United States is dramatic and
+  substantially reduced the risk of importation of disease into the
+  United States for several years.  Atypically low travel levels in the first half of
+  2003 may be partly explained by SARS, but this effect is confounded
+  by the US-led invasion of Iraq in March 2003.  Another small dip is evident in 2009, 
+  perhaps due to the pH1N1 influenza pandemic that year.
+%
+(e) As in (d), but restricted to travellers into Canada from Hong Kong
+  (\emph{green}), China (\emph{red}) and Africa (\emph{yellow}).
+%
+\hfill\break
+%
+Sources: Statistics Canada \cite{cansim}, US Office of Travel and
+Tourism Industries \cite{tinet}, and US Department of Transportation,
+Bureau of Transportation Statistics.  All data originate from customs
+clearance and air arrival records.
+% For info about Canadian data see:
+% http://www.statcan.ca/english/sdds/5005.htm
+% Canadian data accessible on campus from:
+% http://dc1.chass.utoronto.ca/cansim2/index.jsp
+%
+}\label{F:travel}
+\end{figure}
+
+\begin{figure}[th]
+\begin{center}
+\scalebox{1}{
+%\rotatebox{270}{
+\includegraphics{R/westafricatravel.pdf}
+%}
+}
+\end{center}
+\caption{Monthly numbers of travellers into Canada, since 1990, from West African countries that experienced sustained transmission of Ebola virus in 2014.}\label{F:westafricatravel}
+\end{figure}
+
+\begin{figure}[th]
+\begin{center}
+\scalebox{1.5}{
+\includegraphics{R/figures/beds_exp.pdf}
+}
+\end{center}
+\caption{Expected number of beds occupied after the first imported case.
+\emph{Left panel:} Ebola virus.
+\emph{Right panel:} SARS coronavirus.
+\emph{Black:} No control.
+\emph{Red:} Control yielding 80\% reduction in transmission.
+\emph{Solid:} Travel restriction have no effect.
+\emph{Dotted:} Travel restriction reduce import rate by 90\%.\emph{Dashed:} Travel restriction reduce import rate by 99\%.
+}
+\label{F:beds}
+\end{figure}
+
+\begin{figure}[th]
+\begin{center}
+\scalebox{1.5}{
+\includegraphics{R/figures/deaths_exp.pdf}
+}
+\end{center}
+\caption{Expected cumulative number of deaths after the first imported case.
+\emph{Left panel:} Ebola virus.
+\emph{Right panel:} SARS coronavirus.
+}
+\label{F:deaths}
+\end{figure}
+
+\end{document}
